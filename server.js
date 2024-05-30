@@ -50,3 +50,21 @@ app.post("/convert", (req, res) => {
     </p>`);
   }, 1000);
 });
+
+//Handle GET request for polling example
+let counter = 0;
+
+app.get("/poll", (req, res) => {
+  counter++;
+
+  const data = { value: counter };
+
+  res.json(data);
+});
+
+//handle GET request for weather
+let currentTemperature = 20;
+app.get("/get-temperature", (req, res) => {
+  currentTemperature += Math.random() * 2 - 1; //random change temp
+  res.send(currentTemperature.toFixed(1) + "C");
+});
