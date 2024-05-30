@@ -37,3 +37,16 @@ app.get("/users", async (req, res) => {
   `);
   }, 1000);
 });
+
+//Handle POST request for tempreture conveter
+app.post("/convert", (req, res) => {
+  setTimeout(() => {
+    const fahrenheit = parseFloat(req.body.fahrenheit);
+    const celsius = (fahrenheit - 32) * (5 / 9);
+
+    res.send(`<p>
+     ${fahrenheit} degrees Farenheit is equal to ${celsius.toFixed(2)}
+     degrees Celcius
+    </p>`);
+  }, 1000);
+});
